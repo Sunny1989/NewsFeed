@@ -1,0 +1,101 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="NewsItemBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="article"
+            type="com.app.newsfeed.model.pojo.ArticlesPojo" />
+
+        <variable
+            name="newsListAdapter"
+            type="com.app.newsfeed.adapter.NewsListAdapter" />
+
+        <variable
+            name="showBookmark"
+            type="boolean" />
+
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_120dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:onClick="@{newsListAdapter::openDetailScreen}">
+
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginTop="8dp"
+            android:text="1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_source_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{article.source.name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dimen_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tv_num"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxWidth="@dimen/dimen_180dp"
+            android:maxLines="3"
+            android:text="@{article.title}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dimen_14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_source_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_source_name" />
+
+        <ImageView
+            android:id="@+id/iv_news_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            app:imgUrl="@{article.urlToImage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:onClick="@{newsListAdapter::bookMarkNews}"
+            android:text="@string/bookmark"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dimen_12sp"
+            android:visibility="@{showBookmark ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="@+id/tv_news_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_news_title" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

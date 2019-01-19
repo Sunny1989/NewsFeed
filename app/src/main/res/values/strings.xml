@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">NewsFeed</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="news">News</string>
+    <string name="profile">Profile</string>
+    <string name="weather">Weather</string>
+    <string name="easy_news">Easy news</string>
+    <string name="no_data_available">No Data Available</string>
+    <string name="favorites">Favorites</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="news_detail">News Detail</string>
+    <string name="location">Location</string>
+    <string name="enable_permissions">Enable Permissions</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="you_have_denied">You have denied for %s permission, enable it manually.</string>
+    <string name="cancel">Cancel</string>
+    <string name="current_address_not_found">Current Address not found</string>
+    <string name="your_current_city">Your Current City:</string>
+</resources>

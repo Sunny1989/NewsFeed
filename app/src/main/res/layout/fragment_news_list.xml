@@ -1,0 +1,53 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data class="NewsListBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="newsListVM"
+            type="com.app.newsfeed.viewmodel.NewsListVM" />
+
+        <variable
+            name="newListAdapter"
+            type="com.app.newsfeed.adapter.NewsListAdapter" />
+
+    </data>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:visibility="@{newsListVM.articlesPojos.size() != 0 ? View.VISIBLE : View.GONE}"
+                bind:favoriteitems="@{newsListVM.articlesPojos}"
+                bind:isShowBookmark="@{true}" />
+
+            <include
+                layout="@layout/layout_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                bind:isVisible="@{newsListVM.articlesPojos.size() == 0}" />
+
+            <ProgressBar
+                android:id="@+id/pb_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>
